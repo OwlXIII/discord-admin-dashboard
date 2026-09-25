@@ -1,0 +1,463 @@
+:root {
+    --bg: #313338;
+    --bg-alt: #2b2d31;
+    --bg-dark: #1e1f22;
+    --surface: #383a40;
+    --surface-hover: #404249;
+    --text: #dbdee1;
+    --text-muted: #949ba4;
+    --blurple: #5865f2;
+    --blurple-hover: #4752c4;
+    --danger: #da373c;
+    --danger-hover: #a12828;
+    --success: #248046;
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.discord-dark {
+    margin: 0;
+    font-family: "gg sans", "Segoe UI", system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* ---------- login ---------- */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.login-card {
+    background: var(--bg-alt);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.login-logo {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 1.6rem;
+    margin: 0 0 0.75rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+}
+
+.login-button {
+    display: inline-block;
+    background-color: var(--blurple);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background-color: var(--blurple-hover);
+}
+
+/* ---------- layout ---------- */
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: var(--bg-dark);
+    width: 260px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar-header {
+    padding: 0.25rem 0.5rem 0.75rem;
+}
+
+.sidebar-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.server-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.server-list li {
+    margin-bottom: 0.35rem;
+}
+
+.server-button {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    background: transparent;
+    color: var(--text);
+    border: none;
+    padding: 0.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s;
+}
+
+.server-button:hover {
+    background-color: var(--surface-hover);
+}
+
+.server-button.active {
+    background-color: var(--blurple);
+    color: #fff;
+}
+
+.server-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.server-icon-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.server-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.server-empty {
+    padding: 0.5rem;
+}
+
+.sidebar-footer {
+    border-top: 1px solid var(--surface);
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.current-user {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logout-button {
+    background-color: var(--danger);
+    color: #fff;
+    border: none;
+    padding: 0.55rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.15s;
+}
+
+.logout-button:hover {
+    background-color: var(--danger-hover);
+}
+
+/* ---------- main ---------- */
+
+.main-content {
+    flex-grow: 1;
+    padding: 1.75rem 2rem;
+    overflow-y: auto;
+}
+
+.main-header h2 {
+    margin: 0 0 0.25rem;
+}
+
+.muted {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.toolbar {
+    margin: 1rem 0;
+}
+
+.member-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.member-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius);
+    transition: background-color 0.15s;
+}
+
+.member-row:hover {
+    background-color: var(--bg-alt);
+}
+
+.member-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.member-name {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.member-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+    background: var(--surface);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.15s, opacity 0.15s;
+}
+
+.btn:hover {
+    background: var(--surface-hover);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-small {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.btn-primary {
+    background: var(--blurple);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--blurple-hover);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: var(--danger-hover);
+}
+
+/* ---------- modal ---------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal-content {
+    background: var(--bg-alt);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+    margin: 0 0 1rem;
+}
+
+.field-label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin: 0.75rem 0 0.35rem;
+}
+
+.modal-content select,
+.modal-content input {
+    width: 100%;
+    padding: 0.6rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--surface);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 1.25rem;
+}
+
+.perm-filter {
+    margin-bottom: 0.5rem;
+}
+
+.perm-checklist {
+    max-height: 240px;
+    overflow-y: auto;
+    border: 1px solid var(--surface);
+    border-radius: var(--radius);
+    padding: 0.4rem;
+    background: var(--bg-dark);
+}
+
+.perm-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem 0.45rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.perm-item:hover {
+    background: var(--surface-hover);
+}
+
+.perm-item input {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+.perm-item[hidden] {
+    display: none;
+}
+
+/* ---------- toasts ---------- */
+
+.toast-container {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.toast {
+    background: var(--surface);
+    color: var(--text);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s, transform 0.25s;
+    border-left: 4px solid var(--blurple);
+    max-width: 320px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-success {
+    border-left-color: var(--success);
+}
+
+.toast-error {
+    border-left-color: var(--danger);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+    .layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .server-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        width: 100%;
+    }
+
+    .member-actions {
+        width: 100%;
+    }
+}

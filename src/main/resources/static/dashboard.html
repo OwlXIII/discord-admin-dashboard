@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard · Discord Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="discord-dark">
+<div class="layout">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Your servers</span>
+        </div>
+        <ul id="server-list" class="server-list"></ul>
+        <div class="sidebar-footer">
+            <span id="current-user" class="current-user"></span>
+            <button class="logout-button" id="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="main-header">
+            <h2 id="server-name-heading">Select a server</h2>
+            <p id="member-count" class="muted"></p>
+        </header>
+
+        <div class="toolbar" id="toolbar" hidden>
+            <button class="btn btn-primary" id="create-role-btn">➕ Create role</button>
+        </div>
+
+        <ul id="member-list" class="member-list"></ul>
+        <p id="empty-state" class="muted"></p>
+    </main>
+</div>
+
+<!-- Role add/remove modal -->
+<div id="role-modal" class="modal" hidden>
+    <div class="modal-content">
+        <h3 id="role-modal-title">Select role</h3>
+        <select id="role-select"></select>
+        <div class="modal-actions">
+            <button class="btn btn-primary" id="confirm-role-btn">Confirm</button>
+            <button class="btn" data-close-modal="role-modal">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Create role modal -->
+<div id="create-role-modal" class="modal" hidden>
+    <div class="modal-content">
+        <h3>Create a new role</h3>
+        <label class="field-label" for="new-role-name">Name</label>
+        <input type="text" id="new-role-name" maxlength="100" placeholder="e.g. Moderator">
+        <label class="field-label">Permissions (optional)</label>
+        <input type="text" id="perm-filter" class="perm-filter" placeholder="Filter permissions…">
+        <div id="perm-checklist" class="perm-checklist"></div>
+        <div class="modal-actions">
+            <button class="btn btn-primary" id="confirm-create-role-btn">Create</button>
+            <button class="btn" data-close-modal="create-role-modal">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+
+<script src="dashboard.js?v=3"></script>
+</body>
+</html>
